@@ -1,4 +1,7 @@
-var cards = ["ciri.png", "geralt.png", "jaskier.png", "jaskier.png", "iorweth.png", "triss.png", "geralt.png", "yen.png", "ciri.png", "triss.png", "yen.png", "iorweth.png" ]
+var cards = ["ciri.png", "geralt.png", "jaskier.png", "jaskier.png", "iorweth.png", "triss.png", "geralt.png", "yen.png", "ciri.png", "triss.png", "yen.png", "iorweth.png" ];
+cards = cards.sort((a, b) => 0.5 - Math.random());
+
+
 //alert(cards[1]);
 //console.log(cards);
 
@@ -41,9 +44,8 @@ var pairsLeft = 6;
 function revealCard(nr) {
 
   var opacityValue = $('#c'+nr).css('opacity');
-
   //alert('opacity: ' + opacityValue );
-  if(opacityValue != 0 && lock == false){
+  if(opacityValue != 0 && lock == false && nr != visable_nr){
     lock = true;
     var obraz = "url(img/" + cards[nr] + ")";
 
@@ -59,23 +61,22 @@ function revealCard(nr) {
 
     }
     else {
-      //secound card
-      if(cards[visable_nr] == cards[nr]){
-        //alert('traf');
-        setTimeout(function() { hide2Cards(nr, visable_nr) }, 500)
-
-
-      }
-      else {
-        //alert('pudło');
-        setTimeout(function() { restore2Cards(nr, visable_nr) }, 1000)
-      }
-
-      oneVisable = false;
-      turnCounter++;
-      $('.score').html('Turn conter: ' + turnCounter);
+    //secound card
+    if(cards[visable_nr] == cards[nr]){
+      //alert('traf');
+      setTimeout(function() { hide2Cards(nr, visable_nr) }, 500);
 
     }
+    else {
+      //alert('pudło');
+      setTimeout(function() { restore2Cards(nr, visable_nr) }, 1000);
+    }
+
+    oneVisable = false;
+    turnCounter++;
+    $('.score').html('Turn conter: ' + turnCounter);
+    }
+
 
   }
 
