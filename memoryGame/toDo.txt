@@ -1,5 +1,5 @@
-1. rand kart - done
-2. ogarnąć kart " var c0...  "
+//1. rand kart
+//2. ogarnąć kart " var c0...  "
 3. dodać restart gry
-4. wszystjkie karty jednym obiektem jQuery
+//4. wszystjkie karty jednym obiektem jQuery
 5. ...
