@@ -83,5 +83,16 @@ p
 
 #restart
 {
+  margin-top: 20px;
+  background-color: #111111;
   cursor: pointer;
+  border: 4px solid #51c8b2;
+	border-radius: 10px;
+}
+
+#restart:hover
+{
+  border: 4px solid #e9b64a;
+  color: #e9b64a;
+	filter: brightness(100%);
 }

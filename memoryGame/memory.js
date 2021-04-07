@@ -11,7 +11,7 @@ startGame();
 
 
 function startGame() {
-  cards = cards.sort((a, b) => 0.5 - Math.random());
+  //cards = cards.sort((a, b) => 0.5 - Math.random());
 
   oneVisable = false;
   turnCounter = 0;
