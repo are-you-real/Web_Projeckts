@@ -1,4 +1,6 @@
 const axios = require("axios");
+const PostDB_modRead = require("./PostDB_modRead");
+
 
 class UserDB_modRead {
     constructor() {
@@ -6,23 +8,37 @@ class UserDB_modRead {
     }
 
     get all() {
-        return axios.get(this.url).then(resoult => resoult.data);
+        return axios.get(this.url).then(res => res.data);
     }
 
     get totalUsers() {
-        return this.all.then(resoult => resoult.length);
+        return this.all.then(res => res.length);
     }
 
     //methond returns array of all users which ( attribute === value )
     findBy(attribute, value) {
         return this.all
-            .then(response => response.filter(user => user[attribute] === value));
+            .then(res => res.filter(user => user[attribute] === value));
     }
+
+    getPostsByUserId(userId){
+        const postObj = new PostDB_modRead;
+        return postObj.findBy('userId',userId);
+    }
+
+    getUserPostsNr(userId){
+        return this.getPostsByUserId(userId).then(res => res.length);
+    }
+
+    printUserPostsNr(userId){
+        Promise.all([this.findBy('id',userId), this.getUserPostsNr(userId)])
+        .then(val => console.log(val[0][0].name + " napisal " + val[1] + " postów." )); 
+    }
+
 }
 
 const subject = new UserDB_modRead();
-//subject.all.then(res => console.log(res.filter(user => user['id'] === 1)));
-// subject.findBy('id', 10).then(res => console.log(res));
+subject.printUserPostsNr(2);
 
 
 module.exports = UserDB_modRead;

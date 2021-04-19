@@ -31,8 +31,6 @@ const user10 = [
 ]
 
 
-
-
 describe('all', () => {
     it("retuurns users", async () => {
         const subject = new UserDB_modRead();
