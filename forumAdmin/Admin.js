@@ -31,7 +31,7 @@ class Admin {
         this.allPosts.then(res => {
             let arrTitles = [];
             for (const item of res) {
-                console.log(item.title);
+                
                 if (arrTitles.includes(item.title)) {
                     arrNotUnicTitles.push(item.title);
                 }
@@ -68,53 +68,9 @@ class Admin {
         });
     }
 
-    //console.log(
 
-    // async findClosestUser(userId1) {
-    //     let userId2 = -1;
-    //     let dist = 10^8;
-
-    //     await this.getDistanceBetweenUsers(userId1, userId2).then(res => {
-    //         if (userId1 != 0) {
-    //             let userId2 = 0;
-    //             let dist = res;
-    //         } else {
-    //             let userId2 = 1;
-    //             let dist = res;
-    
-    //         }
-    //     });
-
-
-    //     await this.allUsers.then(res => {
-    //         let asd;
-    //         for (const item of res) {
-    //             //console.log());        
-    //             asd =  await this.getDistanceBetweenUsers(userId1, item.id);
-
-    //             if (dist > asd && userId1 != item.id) {
-    //                 userId2 = item.id;
-    //             }
-    //         }
-    //     });
-
-
-
-
-
-        return userId2;
-    }
 
 }
 
-const admin = new Admin;
-console.log(admin.findClosestUser(0));
-//admin.findClosestUser(1).then(res => console.log(res));
-//admin.getDistanceBetweenUsers(1,2).then((proms) =>console.log(proms));
+module.exports = Admin;
 
-
-//axios.get("https://jsonplaceholder.typicode.com/users?id=1").then(res => console.log(res.data[0].address.geo));
-
-
-
-//exports.Admin = Admin;
