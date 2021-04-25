@@ -1,0 +1,88 @@
+.popup
+{   
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: rgb(38, 77, 88);
+    background-color:rgb(36, 35, 44);
+    transform: translate(-50%, -200%) scale(0);
+    width: 400px;
+    max-width: 80%;
+    font-family: 'Poppins', sans-serif;
+
+    transition: 500ms ;
+}
+
+.popup.active
+{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#popupTitle
+{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 42px;
+}
+
+#popupBody
+{
+    font-size: 18px;
+    padding: 15px;
+}
+
+
+.popupButtonsSpace
+{
+    display: inline; 
+}
+
+.popupButtonsSpace #acceptButton
+{
+    
+    color: rgb(87, 87, 87);
+    width: 100px;
+    margin-left: 40px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.popupButtonsSpace #acceptButton:hover
+{
+    border: 0.8px solid rgb(49, 48, 48);
+}
+
+
+.popupButtonsSpace #rejectButton
+{   
+    color: rgb(87, 87, 87);
+    width: 100px;
+    margin-left: 120px;
+    margin-bottom: 15px;
+
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#overlay
+{
+    position: fixed;
+    background-color: rgb(0,0,0,0.5);
+
+    opacity: 0;
+    top: 20%;
+    left: 0;
+    bottom: 20%;
+    right: 0;
+    transition: 500ms ;
+}
+
+#overlay.active 
+{
+    opacity: 1;
+}
