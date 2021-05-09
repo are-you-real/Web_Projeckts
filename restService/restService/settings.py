@@ -17,6 +17,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -27,7 +28,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 #'=+iqmwt5cq9-lr$pa_zrxdxgex7n$1zc3i!^wjsg!xlnkh6a(j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
+DEBUG = False
+#(os.environ.get('DEBUG_VALUE') == 'True')
 
 ALLOWED_HOSTS = ['empiktask.herokuapp.com',
                 '127.0.0.1']
