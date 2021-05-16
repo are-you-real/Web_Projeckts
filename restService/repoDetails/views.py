@@ -15,18 +15,14 @@ def instruction(request):
     }
     return JsonResponse(response, safe = False)
 
+
 def repo_list(request):
     if request.method == "GET":
         gitData = requests.get('https://api.github.com/repos/octocat/hello-world')
+        response = separatorRepo(gitData)
 
-        #separatorRepo(gitData)
-        response = {
-            "full_name" : str(gitData.json()['full_name']),
-            "description" : str(gitData.json()['description']),
-            "cloneUrl" : str(gitData.json()['url']),
-            "stars" : gitData.json()['stargazers_count']
-         }
         return JsonResponse(response, safe = False)
+
 
 def repo_detail(request, owner, repo_name):
     gitData  = requests.get('https://api.github.com/repos/' + str(owner) +
@@ -35,10 +31,5 @@ def repo_detail(request, owner, repo_name):
         return JsonResponse({"message": "Repo not Found"})
 
     if request.method == "GET":
-        response =  {
-            "full_name" : str(gitData.json()['full_name']),
-            "description" : str(gitData.json()['description']),
-            "cloneUrl" : str(gitData.json()['url']),
-            "stars" : gitData.json()['stargazers_count']
-         }
+        response = separatorRepo(gitData)
         return JsonResponse(response, safe = False)
